@@ -1,0 +1,5 @@
+(class-extends Controller-Hello
+               [Controller]
+
+               (fn action-hello ()
+                 (-> this response (body "Hello, world!"))))
