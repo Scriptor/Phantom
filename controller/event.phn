@@ -1,0 +1,5 @@
+(class-extends Controller-Event
+               [Controller]
+
+               (fn action-new ()
+                 (this response (body "Creating a new event."))))
