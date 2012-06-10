@@ -1,8 +1,7 @@
+(require "phantom-kohana.php")
 (proj "PhantomDemo"
       {"description" "Demo of the Phantom framework using Kohana"})
 
-(def app-root (path-join (project-path) ".."))
-
 (task #build "Compiling project files into the appropriate places."
-      (compile-file (project-path "/controller/hello.phn")
-                    (. app-root "/classes/controller")))
+    (compile-controller "/controller/hello.phn")
+    (compile-controller "/controller/event.phn"))
