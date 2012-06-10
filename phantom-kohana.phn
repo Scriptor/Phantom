@@ -1,0 +1,5 @@
+(def app-root (path-join (project-path) ".."))
+
+(fn compile-controller (controller-path)
+  (compile-file (project-path controller-path)
+                (. app-root "/classes/controller")))
