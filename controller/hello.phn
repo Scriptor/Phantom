@@ -1,5 +1,12 @@
 (class-extends Controller-Hello
                [Controller]
 
+               (fn action-index ()
+                 (this response (body "index"))
+                 "stuff")
+
+               (fn action-test ()
+                 (this response (body "test")))
+
                (fn action-hello ()
-                 (-> this response (body "Hello, world!"))))
+                 (this response (body "Hello, world!"))))
