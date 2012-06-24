@@ -1,7 +1,8 @@
-(require "phantom-kohana.php")
+(require "phantom-symfony.php")
+(use Phantom.Symfony as sf)
 (proj "PhantomDemo"
-      {"description" "Demo of the Phantom framework using Kohana"})
+      {"description" "Demo of the Phantom framework using Symfony"})
 
-(task #build "Compiling project files into the appropriate places."
-    (compile-controller "/controller/hello.phn")
-    (compile-controller "/controller/event.phn"))
+(task build "Compiling project files into the appropriate places."
+      (sf.bundle "Acme" "DemoBundle"
+        #controllers ["Welcome"]))

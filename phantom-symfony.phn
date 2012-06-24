@@ -1,0 +1,15 @@
+(ns Phantom.Symfony)
+(def app-root (path-join (project-path) ".."))
+
+(fn compile-controller (bundle-ns bundle controller)
+  (let [controller-output-dir (path-join app-root bundle-ns bundle "Controller")
+        controller-path (project-path (path-join "controller" (. controller "Controller.phn")))]
+    (compile-file controller-path controller-output-dir)))
+
+(fn bundle (bundle-ns bundle &params)
+  (let [pairs (hash-from-pairs (partition 2 params))]
+    (map (lambda (controller)
+                 (compile-controller bundle-ns bundle controller))
+         (:pairs #controllers))))
+
+(defmacro controller () '(foo))
