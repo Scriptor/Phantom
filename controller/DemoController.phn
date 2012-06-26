@@ -1,0 +1,11 @@
+(ns Acme.DemoBundle.Controller)
+(use Symfony.Bundle.FrameworkBundle.Controller.Controller)
+
+(controller
+  Demo
+
+  (action index ()
+    (this (render "AcmeDemoBundle:Demo:index.html.twig")))
+
+  (action test ()
+    (this (render "AcmeDemoBundle:Demo:test.html.twig"))))
