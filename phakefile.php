@@ -1,12 +1,14 @@
 <?php
 require_once('C:\xampp\htdocs\pharen\lang.php');
+use Pharen\Lexical as Lexical;
 Lexical::$scopes['phakefile'] = array();
-require("phantom-kohana.php");
-proj("PhantomDemo", array("description" => "Demo of the Phantom framework using Kohana"));
+require("phantom-symfony.php");
+;
+use Phantom\Symfony as sf;
+proj("PhantomDemo", array("description" => "Demo of the Phantom framework using Symfony"));
 function build(){
 	print(("Running " . "build" . ": " . "Compiling project files into the appropriate places." . "\n"));
-	compile_controller("/controller/hello.phn");
-	return compile_controller("/controller/event.phn");
+	return sf\bundle("Acme", "DemoBundle", "controllers", array("Welcome", "Demo"));
 }
 
 
