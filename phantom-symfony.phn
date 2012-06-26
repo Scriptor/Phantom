@@ -12,4 +12,11 @@
                  (compile-controller bundle-ns bundle controller))
          (:pairs #controllers))))
 
-(defmacro controller () '(foo))
+(defmacro controller (nm &body)
+  (def name (. nm "Controller"))
+  '(class-extends ~name [Controller]
+                  ~@body))
+
+(defmacro action (nm args &body)
+  (def name (. nm "Action"))
+  '(method ~name ~args ~@body))
